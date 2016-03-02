@@ -37,6 +37,24 @@ public class Commande implements Serializable {
     
     private Boolean paye;
     
+    private Boolean livre;
+
+    public Boolean getLivre() {
+        return livre;
+    }
+
+    public void setLivre(Boolean livre) {
+        this.livre = livre;
+    }
+
+    public List<SousCommande> getSousCommandes() {
+        return sousCommandes;
+    }
+
+    public void setSousCommandes(List<SousCommande> sousCommandes) {
+        this.sousCommandes = sousCommandes;
+    }
+    
     @ManyToOne
     @JoinColumn(name ="utilisateur")
     private Utilisateur utilisateur;

@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,12 +35,31 @@ public class Article implements Serializable {
     private Integer stock;
     private Integer prix;
     
+    @Enumerated(EnumType.STRING)
+    private GenreArticle genreArticle;
+    
     @ManyToOne
     @JoinColumn(name = "categorie")
     private Categorie categorie;
 
     @OneToMany(mappedBy = "article")
     private List<SousCommande> sousCommandes;
+
+    public GenreArticle getGenreArticle() {
+        return genreArticle;
+    }
+
+    public void setGenreArticle(GenreArticle genreArticle) {
+        this.genreArticle = genreArticle;
+    }
+
+    public List<SousCommande> getSousCommandes() {
+        return sousCommandes;
+    }
+
+    public void setSousCommandes(List<SousCommande> sousCommandes) {
+        this.sousCommandes = sousCommandes;
+    }
 
     public Categorie getCategorie() {
         return categorie;

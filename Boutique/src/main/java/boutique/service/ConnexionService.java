@@ -5,23 +5,15 @@
  */
 package boutique.service;
 
-import boutique.entity.Commande;
 import boutique.entity.Utilisateur;
-import java.util.List;
+import java.io.Serializable;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
- * 
  * @author admin
  */
-public interface CommandeService extends CrudRepository<Commande, Long>{
-    
-    public List<Commande> findByUtilisateurOrderByDateCommandeDesc(Utilisateur u);
-    
-    public List<Commande> findByLivre(Boolean b);
-    
-    public List<Commande> findByPaye(Boolean b);
-    
-    
+public interface ConnexionService extends CrudRepository<Utilisateur, Long>{
+ 
+    public Utilisateur findByMdpAndEmail(String mdp, String email);
 }
