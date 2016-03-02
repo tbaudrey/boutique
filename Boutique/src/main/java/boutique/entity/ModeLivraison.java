@@ -7,6 +7,7 @@ package boutique.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,18 +26,20 @@ public class ModeLivraison implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    @Column(length = 32)
     private String nom;
+    @Column(length = 32)
     private Integer cout;
 
     @OneToMany(mappedBy = "modeLivraison")
-    private List<Commande> commande;
+    private List<Commande> commandes;
 
     public List<Commande> getCommande() {
-        return commande;
+        return commandes;
     }
 
-    public void setCommande(List<Commande> commande) {
-        this.commande = commande;
+    public void setCommande(List<Commande> commandes) {
+        this.commandes = commandes;
     }
     
     

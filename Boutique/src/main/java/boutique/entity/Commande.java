@@ -46,7 +46,7 @@ public class Commande implements Serializable {
     private ModeLivraison modeLivraison;
     
     @OneToMany(mappedBy = "commande")
-    private List<SousCommande> SousCommande;
+    private List<SousCommande> sousCommandes;
 
     public Utilisateur getUtilisateur() {
         return utilisateur;
@@ -65,11 +65,11 @@ public class Commande implements Serializable {
     }
 
     public List<SousCommande> getSousCommande() {
-        return SousCommande;
+        return sousCommandes;
     }
 
-    public void setSousCommande(List<SousCommande> SousCommande) {
-        this.SousCommande = SousCommande;
+    public void setSousCommande(List<SousCommande> SousCommandes) {
+        this.sousCommandes = sousCommandes;
     }
 
     

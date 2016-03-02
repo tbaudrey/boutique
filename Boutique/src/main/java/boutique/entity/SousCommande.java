@@ -25,7 +25,7 @@ public class SousCommande implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    private Integer Quantite;
+    private Integer quantite;
 
     @ManyToOne
     @JoinColumn(name ="commande")
@@ -38,11 +38,11 @@ public class SousCommande implements Serializable {
     
 
     public Integer getQuantite() {
-        return Quantite;
+        return quantite;
     }
 
-    public void setQuantite(Integer Quantite) {
-        this.Quantite = Quantite;
+    public void setQuantite(Integer quantite) {
+        this.quantite = quantite;
     }
 
     public Commande getCommande() {

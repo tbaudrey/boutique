@@ -7,6 +7,7 @@ package boutique.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,24 +26,32 @@ public class Utilisateur implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    @Column(length = 32)
     private String email;
+    @Column(length = 32)
     private String mdp;
+    @Column(length = 32)
     private String adresse;
+    @Column(length = 32)
     private String codePostal;
+    @Column(length = 32)
     private String ville;
+    @Column(length = 32)
     private String telephone;
+    @Column(length = 32)
     private String nom;
+    @Column(length = 32)
     private String prenom;
     
     @OneToMany(mappedBy = "utilisateur")
-    private List<Commande> commande;
+    private List<Commande> commandes;
 
     public List<Commande> getCommande() {
-        return commande;
+        return commandes;
     }
 
-    public void setCommande(List<Commande> commande) {
-        this.commande = commande;
+    public void setCommande(List<Commande> commandes) {
+        this.commandes = commandes;
     }
     
 

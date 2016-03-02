@@ -7,6 +7,7 @@ package boutique.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +28,7 @@ public class Article implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    @Column(length = 32)
     private String nom;
     private Integer stock;
     private Integer prix;
@@ -36,7 +38,7 @@ public class Article implements Serializable {
     private Categorie categorie;
 
     @OneToMany(mappedBy = "article")
-    private List<SousCommande> SousCommande;
+    private List<SousCommande> sousCommandes;
 
     public Categorie getCategorie() {
         return categorie;
@@ -47,11 +49,11 @@ public class Article implements Serializable {
     }
 
     public List<SousCommande> getSousCommande() {
-        return SousCommande;
+        return sousCommandes;
     }
 
     public void setSousCommande(List<SousCommande> SousCommande) {
-        this.SousCommande = SousCommande;
+        this.sousCommandes = sousCommandes;
     }
     
     public String getNom() {
