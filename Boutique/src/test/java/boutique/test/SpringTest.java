@@ -10,6 +10,7 @@ import boutique.service.UtilisateurService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import boutique.spring.SpringConfig;
+import java.util.Random;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,6 +44,7 @@ public class SpringTest {
     @Test
     public void doNadaOK(){
         utilisateurService.count();
+
     }
     
 }
